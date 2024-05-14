@@ -1,0 +1,87 @@
+db.createCollection("Bares", {
+
+    validator: {
+        $jsonSchema: {
+
+            bsonType: "object",
+            required: ["_id", "nombre", "ciudad", "presupuesto", "cant_sedes", "oferta_bebidas", "direccion"],
+            properties: {
+
+                _id: {
+                    bsonType: "int"
+                }, 
+                nombre: {
+                    bsonType: "string"
+                },
+                ciudad: {
+                    bsonType: "string"
+                }, 
+                presupuesto:{
+                    
+                    bsonType: "array",
+                    required: ["tipo_presupueso"],
+                    properties: {
+                        tipo_presupueso: {
+                            bsonType: "string"
+                        }
+                    }
+
+                },
+                cant_sedes: {
+                    bsonType: "int"
+                },
+                
+                oferta_bebidas: {
+                    bsonType: "object",
+                    required: ["nombre", "grado_alcohol", "tipo", "horario", "precio"],
+                    properties: {
+
+                        nombre: {
+                            bsonType: "string"
+                        },
+                        grado_alcohol: {
+                            bsonType: "int"
+                        }, 
+                        tipo: {
+                            bsonType: "string"
+                        },
+                        horario: {
+                            
+                            bsonType: "array",
+                            required: ["horario"],
+                            properties: {
+                            tipo_presupueso: {
+                                bsonType: "string"
+                            }
+                    }
+
+                        },
+                        precio: {
+                            bsonType: "double"
+                        }
+                    }
+                },
+                direccion: {
+                    bsonType: "object",
+                    required: ["ciudad", "codigo_postal", "direccion", "telefono"],
+                    properties: {
+
+                        ciudad: {
+                            bsonType: "string"
+                        },
+                        codigo_postal: {
+                            bsonType: "int"
+                        },
+                        direccion: {
+                            bsonType: "string"
+                        },
+                        telefono: {
+                            bsonType: "string"
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+})
