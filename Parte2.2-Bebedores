@@ -1,5 +1,4 @@
 db.createCollection("Bebedores", {
-
     validator: {
         $jsonSchema: {
             required: ["_id", "nombre", "presupuesto", "punto", "preferencias", "bares_frecuentados"],
@@ -38,5 +37,4 @@ db.createCollection("Bebedores", {
             }
         }
     }
-
 })
